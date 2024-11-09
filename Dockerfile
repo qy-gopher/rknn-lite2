@@ -13,6 +13,6 @@ RUN ldconfig
 FROM rknn-runtime AS rknn-lite
 RUN apt update && apt upgrade -y && apt install -y virtualenv python3-pip
 COPY --from=source /rknn-toolkit2/rknn-toolkit-lite2/packages/rknn_toolkit_lite2-2.2.0-cp312-cp312-linux_aarch64.whl /
-RUN pip install /rknn_toolkit_lite2-2.2.0-cp312-cp312-linux_aarch64.whl && \
+RUN pip install --break-system-packages /rknn_toolkit_lite2-2.2.0-cp312-cp312-linux_aarch64.whl && \
     rm /rknn_toolkit_lite2-2.2.0-cp312-cp312-linux_aarch64.whl && \
     apt clean
