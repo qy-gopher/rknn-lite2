@@ -1,6 +1,6 @@
 # Huge repo, so clone with depth 1 and use this layer to get sources only
 FROM ubuntu:22.04 AS source
-RUN apt update && apt install -y git && git clone --depth 1 https://github.com/rockchip-linux/rknn-toolkit2.git /rknn-toolkit2
+RUN apt update && apt install -y git && git clone --depth 1 https://github.com/airockchip/rknn-toolkit2.git /rknn-toolkit2
 
 # Copy the runtime library and headers to the runtime image.
 # useful as a base for running c/c++ applications that use the rknn runtime, no need for the python libraries
