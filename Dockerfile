@@ -11,5 +11,5 @@ COPY --from=source /rknn-toolkit2/rknn-toolkit-lite2/packages/rknn_toolkit_lite2
 RUN ldconfig && \
     apt update && apt install -y libgl1 libglib2.0-0 && \
     pip install --break-system-packages /rknn_toolkit_lite2-2.2.0-cp311-cp311-linux_aarch64.whl && \
-    pip install opencv_contrib_python six fastapi uvicorn python-multipar orjson && \
+    pip install opencv_contrib_python six fastapi uvicorn python-multipart orjson && \
     rm /rknn_toolkit_lite2-2.2.0-cp311-cp311-linux_aarch64.whl
