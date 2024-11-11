@@ -7,9 +7,9 @@ RUN apt update && apt install -y git && git clone --depth 1 https://github.com/a
 FROM python:3.11.10-slim-bookworm AS rknn-lite2
 COPY --from=source /rknn-toolkit2/rknpu2/runtime/Linux/librknn_api/include/* /usr/include/
 COPY --from=source /rknn-toolkit2/rknpu2/runtime/Linux/librknn_api/aarch64/librknnrt.so /usr/lib/
-COPY --from=source /rknn-toolkit2/rknn-toolkit-lite2/packages/rknn_toolkit_lite2-2.2.0-cp311-cp311-linux_aarch64.whl /
+COPY --from=source /rknn-toolkit2/rknn-toolkit-lite2/packages/rknn_toolkit_lite2-2.3.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl /
 RUN ldconfig && \
     apt update && apt install -y libgl1 libglib2.0-0 && \
-    pip install --break-system-packages /rknn_toolkit_lite2-2.2.0-cp311-cp311-linux_aarch64.whl && \
-    pip install opencv_contrib_python six fastapi uvicorn python-multipart orjson && \
-    rm /rknn_toolkit_lite2-2.2.0-cp311-cp311-linux_aarch64.whl
+    pip install /rknn_toolkit_lite2-2.3.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl && \
+    pip install opencv_contrib_python six fastapi uvicorn python-multipart orjson pillow && \
+    rm /rknn_toolkit_lite2-2.3.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
